@@ -212,15 +212,43 @@ php正则表达式-常用函数
 
 		 有点语言中不支持模式修正符号 javascript
 
-		
+		 
+            一个URL正则表达式
+ 
+		   $url="/(https?|ftps?):\/\/(www|mail|news)\.([^\.\/]+)\.(com|org|net)/i";
+
+		    http://www.baidu.com
+		    ftp://mail.google.com
+		    https://news.hello.org
+ 		
 
 	二、学习正则表达式的强大处理函数
 	
 	    第一个参数:正则  第二个参数: 要过滤的字符串 第三个参数：把匹配过的元素最后都会放到这个参数里
-	   preg_match(); 执行一个正则表达式匹配
+	   preg_match(); 执行一个正则表达式匹配(只执行一次匹配)
+	   
+	   
+	   和preg_match功能一样 参数一样
+           preg_match_all     执行一个全局正则表达式匹配
 
+           例子   查找出所有的url,替换成a连接
+	      $str="这是一个正则表https://www.baidu.com达式的匹配函数
+		这是一个正则表http://www.baidu1.com达式的匹配函数
+		这是一个正则表https://mail.baidu2.com达式的匹配函数
+		这是一个正则表https://news.baidu3.com达式的匹配函数
+		";
 
+		function setUrl($str) {
+			$url="/(https?|ftps?):\/\/((www|mail|news)\.([^\.\/]+)\.(com|org|net))/i";
+			  preg_match_all($url, $str, $arr);
+			 foreach($arr[0] as $url){
+				$str=str_replace($url, '<a href="'.$url.'">'.$url.'</a>', $str);
+			  }
 
+			 return  $str;
+		}
+
+		echo setUrl($str);
 
 
 
