@@ -251,7 +251,23 @@ php正则表达式-常用函数
 		}
 
 		echo setUrl($str);
+		
+		
+              字符串处理函数
 
+		  strstr():(不区分字符串大小写) — 查找字符串的首次出现  
+		  stristr():(区分字符串大小写)  功能一样
+
+		     例子 ；
+		     echo stristr("this is a test hrello", "test");  输出：test hrello
+		     echo strstr("this is a tedst", 100);   输出   dst
+
+
+		     strpos() :(不区分字符串大小写) 查找字符串首次出现的位置
+		     strrpos() :(区分字符串大小写) 
+			$mystring = 'bca';
+			$findme   = 'a';
+			echo strpos($mystring, $findme); 输出 2
 
 
 
