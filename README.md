@@ -232,11 +232,13 @@ php正则表达式-常用函数
            preg_match_all     执行一个全局正则表达式匹配
 
            例子   查找出所有的url,替换成a连接
-	      $str="这是一个正则表https://www.baidu.com达式的匹配函数
-		这是一个正则表http://www.baidu1.com达式的匹配函数
-		这是一个正则表https://mail.baidu2.com达式的匹配函数
-		这是一个正则表https://news.baidu3.com达式的匹配函数
-		";
+	   
+	   
+		      $str="这是一个正则表https://www.baidu.com达式的匹配函数
+			这是一个正则表http://www.baidu1.com达式的匹配函数
+			这是一个正则表https://mail.baidu2.com达式的匹配函数
+			这是一个正则表https://news.baidu3.com达式的匹配函数
+			";
 
 		function setUrl($str) {
 			$url="/(https?|ftps?):\/\/((www|mail|news)\.([^\.\/]+)\.(com|org|net))/i";
