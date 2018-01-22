@@ -308,14 +308,15 @@ php正则表达式-常用函数
 		       echo $newstr;   // 这里把$str里有和 $sear一样的关键字都换成 **
 			    
  
-                      第三种： 注意 (3) str_replace(array,array,string);这里的连个数组都是一一对应的
+                       第三种： 注意 (3) str_replace(array,array,string);这里的连个数组都是一一对应的
 		      
-		       $str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，
-		             还有liuneng我们的味觉。 远xieguangkun离钢筋水泥，
-			     回归大lisi山的静谧， 让大山再php次拥抱流浪wangwu儿疲惫的身躯 ";
+		      
+			       $str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，
+				     还有liuneng我们的味觉。 远xieguangkun离钢筋水泥，
+				     回归大lisi山的静谧， 让大山再php次拥抱流浪wangwu儿 ";
  
-			    $sear=array("zhangsan","lisi","wangwu","liuneng","xieguangkun");
-			     $replac=array("11","22","33","44","55");
+			       $sear=array("zhangsan","lisi","wangwu","liuneng","xieguangkun");
+			       $replac=array("11","22","33","44","55");
 
 			      $newstr=str_ireplace($sear,$replac,$str);
 			      
