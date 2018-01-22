@@ -268,14 +268,56 @@ php正则表达式-常用函数
 			$mystring = 'bca';
 			$findme   = 'a';
 			echo strpos($mystring, $findme); 输出 2
+			
 
+             str_replace() 子字符串替换
+             str_ireplace()  不区分大小写
+       
+		       常用str_replace()  放法的三种用法
+			 (1) str_replace(string,string,string);
+			 (2) str_replace(array,string,string);
+			 (3) str_replace(array,array,string);
 
+                          第一种：
+			  
+                           $str="城市中嘈杂的生活慢慢php的吞噬了我们的身心，还有我们的味觉。
+			     远离钢筋水泥，回归大山的静谧，让大山再php次拥抱流浪儿疲惫的身躯 ";
 
+			     $sear="php";
+			     $replac="<span style='color: red;'>$sear</span>";
 
+			      $newstr=str_replace($sear,$replac,$str);
+			      
+                              echo $newstr;   //把$str里面的所有的php颜色变成红色
 
+                          第二种：
+			   
+			   
+			$str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，
+			   还有liuneng我们的味觉远xieguangkun离钢筋水泥，回归大lisi山的静谧，
+			   让大山再php次拥抱流浪wangwu儿疲惫的身躯 ";
 
+		        $sear=array("zhangsan","lisi","wangwu","liuneng","xieguangkun");
+		        $replac="**";
 
+		       $newstr=str_ireplace($sear,$replac,$str);
+		       
+		       echo $newstr;   // 这里把$str里有和 $sear一样的关键字都换成 **
+			    
+ 
+                      第三种： 注意 (3) str_replace(array,array,string);这里的连个数组都是一一对应的
+		      
+		       $str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，
+		             还有liuneng我们的味觉。 远xieguangkun离钢筋水泥，
+			     回归大lisi山的静谧， 让大山再php次拥抱流浪wangwu儿疲惫的身躯 ";
+ 
+			    $sear=array("zhangsan","lisi","wangwu","liuneng","xieguangkun");
+			     $replac=array("11","22","33","44","55");
 
+			      $newstr=str_ireplace($sear,$replac,$str);
+			      
+			    这里把$str里有和 $sear一样的关键字,替换成$replac对应的关键字
+			      echo $newstr;   
 
 
 
