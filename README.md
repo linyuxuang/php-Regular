@@ -339,7 +339,6 @@ php正则表达式-常用函数
 			   $str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，
 			      还有liuneng我们的味觉。 远xieguangkun离钢筋水泥，
 			      回归大lisi山的静谧，让大山再php次拥抱流浪wangwu儿疲惫的身躯 ";
-
 			      $sear="/[a-zA-Z]+/";
 			      $newstr=preg_replace($sear,"hello",$str);
 			      把所有a-z之间的字母都替换 hello
