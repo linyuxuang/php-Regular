@@ -322,10 +322,92 @@ php正则表达式-常用函数
 			      
 			    这里把$str里有和 $sear一样的关键字,替换成$replac对应的关键字
 			      echo $newstr;   
+			      
+			      
+                  preg_replace()   正则替换函数
 
+		  (1) 正常使用  preg_replace(string,string,string)
+		  (2) 在正则中的子模式 ，可以用到第二个参数
+		  (3) 在第二个参数中调用(系统函数/自定义函数)，需要在模式中使用 e 模式修正符号
+                  (4) 将前面两个参数都是用数组，可以一起将多个模式（正则）同时替换成多个值的形式
+            
+	            第一种：
+			   $str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，
+			      还有liuneng我们的味觉。 远xieguangkun离钢筋水泥，
+			      回归大lisi山的静谧，让大山再php次拥抱流浪wangwu儿疲惫的身躯 ";
 
+			      $sear="/[a-zA-Z]+/";
+			      $newstr=preg_replace($sear,"hello",$str);
+			      把所有a-z之间的字母都替换 hello
+			       echo $newstr;
+			       
+			       
+ 用子模式方法(可以把自身的值替换或改变)
+ 
+                  第二种：
+		   
+	          $str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，
+		       还有liuneng我们的味觉。 远xieguangkun离钢筋水泥，
+		       回归大lisi山的静谧，让大山再php次拥抱流浪wangwu儿疲惫的身躯 ";
 
+	          $newstr=preg_replace("/([a-zA-Z]+)/",'<font color="red">\1</font>',$str);
+		  
+		  把$str里面匹配到的字母，替换自己值的颜色（\1-----子模式取值方法）
+		    echo $newstr;
 
+ 
+                   
+                 $str="这是一个正则表https://www.baidu.com达式的匹配函数
+			这是一个正则表http://www.baidu1.com达式的匹配函数
+			这是一个正则表https://mail.baidu2.com达式的匹配函数
+			这是一个正则表https://news.baidu3.com达式的匹配函数
+			";
+
+		function setUrl($str) {
+		 $url="/(https?|ftps?):\/\/(www|mail|news)\.([^\.\/]+)\.(com|org|net)/i";
+                                                  https://www.baidu.com
+	        return  preg_replace($url,'<a href="\1://\2.\3.\4">\1://\2.\3.\4</a>',$str);
+	          }
+		  用子模式把所有的hhttps://www.baidu.com取出来了
+		 echo setUrl($str);
+		 
+		 
+	   第三种：
+	    
+	     $str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，还有liuneng我们的味觉。
+               远xieguangkun离钢筋水泥，回归大lisi山的静谧，让大山再php次拥抱流浪wangwu儿疲惫的身躯 ";
+   
+               $newstr=preg_replace("/([a-z]+)/e",'strtoupper ("\1")',$str);
+	         在第二个参数调用函数（转成大写）
+                echo $newstr; 
+		
+		
+	   第四种：	 注意这两个数组一定是一一对应的
+
+              $str="[b]城市中[/b]嘈杂zhangsan的[i]生活慢慢[/i]php的吞噬了我们的身心
+		   还有liuneng我们的味觉。远xieguangkun离钢筋水泥，[u]回归大[/u]lisi山的静谧，
+		   让大山再php次[size=7]拥抱流浪[/size] wangwu[color=Magenta]儿疲惫的[/color]身躯 ";
+   
+		       $ubbcoders=array(
+			'/\[b\](.*?)\[\/b\]/',
+			 '/\[i\](.*?)\[\/i\]/',
+			  '/\[u\](.*?)\[\/u\]/',
+			  '/\[color=(.*?)\](.*?)\[\/color\]/',
+			  '/\[size=(.*?)\](.*?)\[\/size\]/'
+
+		       );
+
+		       $htnls=array(
+			 '<b>\1</b>',
+			 '<i>\1</i>',
+			 '<u>\1</u>',
+			 '<font color="\1">\2</font>',
+			 '<font size="\1">\2</font>'
+		       );
+
+		      $newstr=preg_replace( $ubbcoders,$htnls,$str);
+		      
+		      echo $newstr;
 
 
 
