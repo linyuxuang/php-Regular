@@ -329,7 +329,10 @@ php正则表达式-常用函数
 		  (1) 正常使用  preg_replace(string,string,string)
 		  (2) 在正则中的子模式 ，可以用到第二个参数
 		  (3) 在第二个参数中调用(系统函数/自定义函数)，需要在模式中使用 e 模式修正符号
-                  (4) 将前面两个参数都是用数组，可以一起将多个模式（正则）同时替换成多个值的形式
+                  (4) 将前面两个参数都是用数组，可以一起将多个模式（正则）同时替换成多个值的形式
+		  
+		  
+		  
             
 	            第一种：
 			   $str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，
@@ -346,9 +349,10 @@ php正则表达式-常用函数
  
                   第二种：
 		   
-	          $str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，
-		       还有liuneng我们的味觉。 远xieguangkun离钢筋水泥，
-		       回归大lisi山的静谧，让大山再php次拥抱流浪wangwu儿疲惫的身躯 ";
+		   
+	           $str="城市中嘈杂zhangsan的生活慢慢php的吞噬了我们的身心，
+		         还有liuneng我们的味觉。 远xieguangkun离钢筋水泥，
+		         回归大lisi山的静谧，让大山再php次拥抱流浪wangwu儿疲惫的身躯 ";
 
 	          $newstr=preg_replace("/([a-zA-Z]+)/",'<font color="red">\1</font>',$str);
 		  
